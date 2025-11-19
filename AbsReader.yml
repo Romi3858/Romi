@@ -1,0 +1,156 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: AbsReader
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.6@e2665624a156f52160927bceac9e169bd7e5ae6b936ae82575e14c90af390e6e
+    version: null
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 10
+    strategy: function_call
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+    top_k: 4
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    allowed_file_extensions:
+    - .JPG
+    - .JPEG
+    - .PNG
+    - .GIF
+    - .WEBP
+    - .SVG
+    - .MP4
+    - .MOV
+    - .MPEG
+    - .WEBM
+    allowed_file_types: []
+    allowed_file_upload_methods:
+    - remote_url
+    - local_file
+    enabled: true
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+    number_limits: 3
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: chatgpt-4o-latest
+    provider: langgenius/openai/openai
+  more_like_this:
+    enabled: false
+  opening_statement: ''
+  pre_prompt: 'You will receive two inputs: Title and Abstract of a research paper.
+
+
+    Your task:
+
+    - Carefully read the Title + Abstract.
+
+    - Then produce ONE single sentence extremely short summary (maximum 18 words).
+
+    - This single sentence must express the core main idea / core contribution of
+    the paper.
+
+    - Write only one sentence.
+
+    - Do not repeat the Title.
+
+    - Do not explain method / dataset / details / statistics.
+
+    - Do not generate bullet points.
+
+    - No introduction.
+
+
+    -----------------------------------
+
+    EXAMPLE (this example is not part of output, only for understanding format):
+
+
+    Title Example:
+
+    "The Impact of Digital Literacy Training on High School Students'' Critical Thinking
+    Skills"
+
+
+    Abstract Example:
+
+    "This study investigates the effect of short-term digital literacy training on
+    enhancing critical thinking skills among 10th-grade students. Using a quasi-experimental
+    design, the study compares pre-test and post-test results to determine whether
+    structured digital literacy learning interventions improve students'' ability
+    to analyze information, evaluate online sources, and reason logically."
+
+
+    Correct Output Example (one sentence):
+
+    "Digital literacy training significantly improves students’ ability to evaluate
+    information and reason critically."
+
+
+    -----------------------------------
+
+    INPUTS:
+
+    Title: {{Title}}
+
+    Abstract: {{Abstract}}
+
+    -----------------------------------
+
+
+    Now produce the one sentence summary:'
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: true
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form:
+  - text-input:
+      default: ''
+      label: Title
+      max_length: 200
+      required: true
+      variable: Title
+  - paragraph:
+      default: ''
+      label: Abstract
+      max_length: 5000
+      required: true
+      variable: Abstract
+version: 0.4.0
